@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gen W - Generational Wealth for Every Australian Family</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+        
+        .nav-links a:hover {
+            opacity: 0.8;
+        }
+        
+        .cta-button {
+            background: #ff6b6b;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
+        }
+        
+        main {
+            margin-top: 80px;
+        }
+        
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 5rem 0;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+        
+        .stat {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        .section {
+            padding: 4rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #333;
+        }
+        
+        .problem-section {
+            background: #f8f9fa;
+        }
+        
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .problem-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        
+        .problem-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .solution-section {
+            background: white;
+        }
+        
+        .solution-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .solution-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        
+        .solution-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .how-it-works {
+            background: #f8f9fa;
+        }
+        
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .step {
+            text-align: center;
+            position: relative;
+        }
+        
+        .step-number {
+            background: #667eea;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 0 auto 1rem;
+        }
+        
+        .impact-section {
+            background: white;
+        }
+        
+        .impact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .impact-card {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 10px;
+            border-left: 5px solid #667eea;
+        }
+        
+        .pricing-section {
+            background: #f8f9fa;
+        }
+        
+        .pricing-comparison {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .pricing-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            position: relative;
+        }
+        
+        .pricing-card.featured {
+            border: 3px solid #667eea;
+            transform: scale(1.05);
+        }
+        
+        .pricing-card.featured::before {
+            content: "RECOMMENDED";
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #667eea;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+        
+        .price {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #667eea;
+            margin: 1rem 0;
+        }
+        
+        .price-old {
+            text-decoration: line-through;
+            color: #999;
+            font-size: 1.5rem;
+        }
+        
+        .features-list {
+            list-style: none;
+            margin: 1rem 0;
+        }
+        
+        .features-list li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .features-list li:before {
+            content: "✓";
+            color: #28a745;
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+        
+        .cta-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            padding: 4rem 0;
+        }
+        
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        .cta-large {
+            background: #ff6b6b;
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-decoration: none;
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: inline-block;
+        }
+        
+        .cta-large:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(255, 107, 107, 0.4);
+        }
+        
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero-stats {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .pricing-card.featured {
+                transform: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">Gen W</div>
+            <ul class="nav-links">
+                <li><a href="#how-it-works">How It Works</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#impact">Impact</a></li>
+                <li><a href="#about">About</a></li>
+            </ul>
+            <a href="#get-started" class="cta-button">Get Started</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>Family Trusts Made Simple</h1>
+                <p>The first automated platform making sophisticated wealth-building tools accessible to every Australian family</p>
+                <a href="#get-started" class="cta-large">Start Building Wealth Today</a>
+                
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number">90%</span>
+                        <span class="stat-label">Cost Reduction</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">$0</span>
+                        <span class="stat-label">Setup Fees</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">5 Days</span>
+                        <span class="stat-label">Trust Creation</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section problem-section">
+            <div class="container">
+                <h2 class="section-title">The Problem: Wealth Tools Only for the Wealthy</h2>
+                <div class="problem-grid">
+                    <div class="problem-card">
+                        <div class="problem-icon">💰</div>
+                        <h3>High Setup Costs</h3>
+                        <p>Traditional family trusts cost $1,000-$3,000 to establish, plus $1,500+ annually in compliance costs - pricing out middle-class families.</p>
+                    </div>
+                    <div class="problem-card">
+                        <div class="problem-icon">📋</div>
+                        <h3>Complex Legal Process</h3>
+                        <p>Setting up a trust requires navigating lawyers, stamp duty, government registrations, and ongoing compliance - a maze for ordinary families.</p>
+                    </div>
+                    <div class="problem-card">
+                        <div class="problem-icon">⏰</div>
+                        <h3>Time-Consuming Setup</h3>
+                        <p>The manual process can take weeks or months, with multiple appointments, document reviews, and bureaucratic delays.</p>
+                    </div>
+                    <div class="problem-card">
+                        <div class="problem-icon">🏦</div>
+                        <h3>Limited Access</h3>
+                        <p>Only wealthy Australians can afford sophisticated tax optimization and wealth transfer strategies, creating inequality in financial opportunities.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section solution-section">
+            <div class="container">
+                <h2 class="section-title">Our Solution: Automated Trust Creation</h2>
+                <div class="solution-grid">
+                    <div class="solution-card">
+                        <h3>🤖 Automated Legal Documents</h3>
+                        <p>AI-powered platform generates NSW-compliant trust deeds in minutes, not weeks</p>
+                    </div>
+                    <div class="solution-card">
+                        <h3>💳 Pay-As-You-Grow Model</h3>
+                        <p>No upfront fees - just 1% annually on your trust assets. Start with as little as $10,000</p>
+                    </div>
+                    <div class="solution-card">
+                        <h3>📱 Mobile-First Platform</h3>
+                        <p>Manage your family trust from your phone with intuitive, user-friendly interface</p>
+                    </div>
+                    <div class="solution-card">
+                        <h3>🎯 Tax Optimization</h3>
+                        <p>Built-in strategies to minimize tax and maximize wealth transfer to the next generation</p>
+                    </div>
+                    <div class="solution-card">
+                        <h3>📊 Integrated Investing</h3>
+                        <p>Professional portfolio management with automatic rebalancing and tax-loss harvesting</p>
+                    </div>
+                    <div class="solution-card">
+                        <h3>✅ Automated Compliance</h3>
+                        <p>We handle all the paperwork - tax returns, distribution resolutions, and regulatory reporting</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="how-it-works" class="section how-it-works">
+            <div class="container">
+                <h2 class="section-title">How It Works</h2>
+                <div class="steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <h3>Answer Simple Questions</h3>
+                        <p>Tell us about your family, goals, and financial situation through our guided questionnaire</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <h3>Automated Setup</h3>
+                        <p>Our platform creates your trust deed, handles stamp duty, and registers with government agencies</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <h3>Fund Your Trust</h3>
+                        <p>Transfer money into your trust and choose from professionally managed investment portfolios</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <h3>Watch It Grow</h3>
+                        <p>Monitor your wealth building through our app while we handle compliance and tax optimization</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="impact" class="section impact-section">
+            <div class="container">
+                <h2 class="section-title">Impact on Australian Families</h2>
+                <div class="impact-grid">
+                    <div class="impact-card">
+                        <h3>🏠 Home Ownership for the Next Generation</h3>
+                        <p>Help your children save for their first home deposit through tax-effective trust distributions when they're adults, rather than losing money to high tax rates.</p>
+                    </div>
+                    <div class="impact-card">
+                        <h3>🎓 Education Investment</h3>
+                        <p>Build education funds that can be distributed tax-effectively when your children reach university age, maximizing the value of every dollar saved.</p>
+                    </div>
+                    <div class="impact-card">
+                        <h3>🛡️ Asset Protection</h3>
+                        <p>Protect family wealth from potential creditors, business risks, or relationship breakdowns while maintaining family control.</p>
+                    </div>
+                    <div class="impact-card">
+                        <h3>💼 Small Business Benefits</h3>
+                        <p>Small business owners can separate business and personal assets, optimize tax structures, and plan for business succession.</p>
+                    </div>
+                    <div class="impact-card">
+                        <h3>👨‍👩‍👧‍👦 Generational Wealth</h3>
+                        <p>Create lasting financial legacies that can benefit multiple generations, breaking cycles of financial struggle.</p>
+                    </div>
+                    <div class="impact-card">
+                        <h3>📈 Investment Growth</h3>
+                        <p>Professional investment management typically reserved for high-net-worth individuals, now accessible to middle-class families.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="pricing" class="section pricing-section">
+            <div class="container">
+                <h2 class="section-title">Transparent, Fair Pricing</h2>
+                <div class="pricing-comparison">
+                    <div class="pricing-card">
+                        <h3>Traditional Approach</h3>
+                        <div class="price price-old">$2,500+</div>
+                        <p>Upfront Setup Cost</p>
+                        <ul class="features-list">
+                            <li>$750 NSW stamp duty</li>
+                            <li>$1,000-2,000 legal fees</li>
+                            <li>$500+ corporate trustee setup</li>
+                            <li>$1,500+ annual compliance</li>
+                            <li>Limited ongoing support</li>
+                            <li>Complex management</li>
+                        </ul>
+                        <p><strong>Total Year 1: $4,000+</strong></p>
+                    </div>
+                    
+                    <div class="pricing-card featured">
+                        <h3>Gen W Platform</h3>
+                        <div class="price">1%</div>
+                        <p>Per Year on Assets</p>
+                        <ul class="features-list">
+                            <li>$0 upfront setup fees</li>
+                            <li>Automated legal documents</li>
+                            <li>Stamp duty included</li>
+                            <li>Government registrations</li>
+                            <li>Investment management</li>
+                            <li>Tax optimization</li>
+                            <li>Automated compliance</li>
+                            <li>24/7 platform access</li>
+                            <li>Customer support</li>
+                        </ul>
+                        <p><strong>$50k trust = $500/year</strong></p>
+                    </div>
+                    
+                    <div class="pricing-card">
+                        <h3>Your Savings</h3>
+                        <div class="price" style="color: #28a745;">$3,500+</div>
+                        <p>First Year Savings</p>
+                        <ul class="features-list">
+                            <li>90% cost reduction</li>
+                            <li>No upfront barriers</li>
+                            <li>Professional management</li>
+                            <li>Better tax outcomes</li>
+                            <li>Simplified process</li>
+                            <li>Mobile accessibility</li>
+                        </ul>
+                        <p><strong>Start with $10k minimum</strong></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section" id="get-started">
+            <div class="container">
+                <h2>Ready to Build Generational Wealth?</h2>
+                <p>Join thousands of Australian families already using Gen W to secure their financial future</p>
+                <a href="#" class="cta-large">Start Your Trust Today</a>
+                <p style="margin-top: 1rem; opacity: 0.8; font-size: 0.9rem;">
+                    No upfront fees • 5-minute application • Professional support included
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Contact</a>
+                <a href="#">Support</a>
+            </div>
+            <p>&copy; 2024 Gen W. All rights reserved. | AFSL Application Pending | Australian Financial Services</p>
+            <p style="font-size: 0.8rem; opacity: 0.7; margin-top: 0.5rem;">
+                Gen W is committed to democratizing wealth-building tools for all Australians. 
+                This website contains general information only and does not constitute personal financial advice.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add animation to stats when they come into view
+        const observerOptions = {
+            threshold: 0.5,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 0.6s ease forwards';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards and stats
+        document.querySelectorAll('.problem-card, .solution-card, .impact-card, .pricing-card, .step').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Add CSS animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fadeInUp {
+                from {
+                    opacity: 0;
+                    transform: translateY(30px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
